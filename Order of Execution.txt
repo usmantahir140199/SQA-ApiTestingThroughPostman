@@ -1,0 +1,4 @@
+Order of Execution: we can specify both scripts in different Level
+Collection
+    Folder
+         Requests

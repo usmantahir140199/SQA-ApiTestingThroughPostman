@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "020be96e-7374-4f21-a1b1-fefed908e0d3",
+		"name": "OrderOfExecution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "myFolder",
+			"item": [
+				{
+					"name": "SingleUser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b0e7836c-517a-4347-bdf5-2f013b28c719",
+								"exec": [
+									"console.log(\"This is request Level Pre Requisite Script\")"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b96b681-9c73-46d3-b036-dd7b2c22348f",
+								"exec": [
+									"console.log(\"This is request Level Test Script\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users/2",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7940f314-c01a-468c-8a5e-b353f149e984",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"This is folder Level Pre Requisite Script\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "81a46c87-e0bc-4eae-a83a-d3fdbd2886eb",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"This is Folder Level Test Script\")"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c1496edc-330c-4bb4-bc73-54cfdc20bcf8",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"This is collection Level Pre Requisite Script\")"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "51e09e45-524d-4574-a95d-057644d059e5",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"This is collection Level test Script\")"
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

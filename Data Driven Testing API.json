@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "b2ed3443-21ba-4b3b-b873-578c807e670c",
+		"name": "Data Driven Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21310160"
+	},
+	"item": [
+		{
+			"name": "Single Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"tests [\"validating Status code\"] = responseCode.code == 200;\r",
+							"tests [\"Check status in the response\"] = responseBody.has(\"success\");\r",
+							"var re = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"token1\",(re.results[0].token));\r",
+							"tests[\"check status\"]=re.status == \"success\";\r",
+							"\r",
+							"// For testing the Header Information or Data\r",
+							"pm.test(\"check Content Length\",function()\r",
+							"{\r",
+							"    pm.re.to.be.header(\"Content-Length\",\"101\");\r",
+							"    pm.re.to.be.header(\"Content-Type\",\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check Content Type\",function()\r",
+							"{\r",
+							"    pm.re.to.be.header(\"Content-Type\",\"application/json\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"john\",\r\n    \"salary\" : \"12300\",\r\n     \"age\" : \"23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiple Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"{{name}}\",\r\n    \"salary\" : \"{{salary}}\",\r\n     \"age\" : \"{{age}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

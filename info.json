@@ -1,0 +1,44 @@
+{
+  "users":[
+    {
+      "id" : 1,
+      "name" : "John",
+      "location" : "india",
+      "phone" : 123456789,
+      "courses" : [
+        "Java",
+        "Selenium"
+      ]
+    },
+    {
+      "id" : 2,
+      "name" : "kim",
+      "location" : "US",
+      "phone" : 192823848,
+      "courses" : [
+        "python",
+        "Appium"
+      ]
+    },
+    {
+      "id" : 3,
+      "name" : "Smith",
+      "location" : "NY",
+      "phone" : 128374774,
+      "courses" : [
+        "C#",
+        "RestAPI"
+      ]
+    },
+    {
+      "name" : "david",
+      "location" : "Melboune",
+      "phone" : 123232322,
+      "courses" : [
+        "Selenium",
+        "python"
+      ],
+      "id" : 4
+    }
+  ]
+}

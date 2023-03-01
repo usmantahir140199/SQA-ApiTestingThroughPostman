@@ -1,0 +1,74 @@
+{
+	"id": "f625918d-c4b3-42d5-88f1-b671c94126b7",
+	"name": "Data Driven Testing API",
+	"timestamp": "2022-11-30T09:47:47.788Z",
+	"collection_id": "8cbd3e7e-57c1-45f3-a613-45e258fbe145",
+	"folder_id": 0,
+	"environment_id": "ef6e5cde-08d0-49b1-9907-3cf47c489688",
+	"totalPass": 0,
+	"totalFail": 10,
+	"results": [
+		{
+			"id": "255b2edb-d463-4e8f-9dea-3286722ae55d",
+			"name": "Single Data",
+			"time": 117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"validating Status code": false,
+				"Check status in the response": false
+			},
+			"testPassFailCounts": {
+				"validating Status code": {
+					"pass": 0,
+					"fail": 5
+				},
+				"Check status in the response": {
+					"pass": 0,
+					"fail": 5
+				}
+			},
+			"times": [
+				140,
+				132,
+				117,
+				123,
+				117
+			],
+			"allTests": [
+				{
+					"validating Status code": false,
+					"Check status in the response": false
+				},
+				{
+					"validating Status code": false,
+					"Check status in the response": false
+				},
+				{
+					"validating Status code": false,
+					"Check status in the response": false
+				},
+				{
+					"validating Status code": false,
+					"Check status in the response": false
+				},
+				{
+					"validating Status code": false,
+					"Check status in the response": false
+				}
+			]
+		}
+	],
+	"count": 5,
+	"totalTime": 629,
+	"collection": {
+		"requests": [
+			{
+				"id": "255b2edb-d463-4e8f-9dea-3286722ae55d",
+				"method": "POST"
+			}
+		]
+	}
+}

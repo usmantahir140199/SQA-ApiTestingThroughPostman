@@ -1,0 +1,128 @@
+{
+	"id": "b7aa1223-f531-4189-87b6-9a243d9b9c6a",
+	"name": "WorkFlows",
+	"timestamp": "2022-12-01T09:46:36.482Z",
+	"collection_id": "867e1082-621f-4ef6-a630-b4943e483249",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "ae7089d5-0d46-4c3c-b599-0ed0a3453e1c",
+			"name": "GetAllUsers",
+			"url": "http://localhost:3000/users",
+			"time": 549,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				549
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e1eb72c3-d79e-44ce-8b87-861c28917c9b",
+			"name": "GetSingleUser",
+			"url": "http://localhost:3000/users/8",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ebb8cd90-9ffd-4c1c-a8dc-c2ec21565328",
+			"name": "PostNewUser",
+			"url": "http://localhost:3000/users",
+			"time": 42,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "453e681a-3a7b-495d-8ea6-bf7c36b7dc4c",
+			"name": "DeleteUser",
+			"url": "http://localhost:3000/users/8",
+			"time": 61,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				61
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cbd6b28c-8245-499d-95d0-00c79d485b0d",
+			"name": "UpdateUserDetail",
+			"url": "http://localhost:3000/users/8",
+			"time": 30,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 714,
+	"collection": {
+		"requests": [
+			{
+				"id": "ae7089d5-0d46-4c3c-b599-0ed0a3453e1c",
+				"method": "GET"
+			},
+			{
+				"id": "e1eb72c3-d79e-44ce-8b87-861c28917c9b",
+				"method": "GET"
+			},
+			{
+				"id": "ebb8cd90-9ffd-4c1c-a8dc-c2ec21565328",
+				"method": "POST"
+			},
+			{
+				"id": "453e681a-3a7b-495d-8ea6-bf7c36b7dc4c",
+				"method": "DELETE"
+			},
+			{
+				"id": "cbd6b28c-8245-499d-95d0-00c79d485b0d",
+				"method": "PUT"
+			}
+		]
+	}
+}

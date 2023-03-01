@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "867e1082-621f-4ef6-a630-b4943e483249",
+		"name": "WorkFlows",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a53bf5dc-b7a2-46d3-95c9-03911c514310",
+						"exec": [
+							"postman.setNextRequest(\"GetSingleUser\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "013cfbb6-5ebe-4a5b-97b0-9c3d6f1b0f5d",
+						"exec": [
+							"postman.setNextRequest(\"PostNewUser\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostNewUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8123453-dc16-4329-9b64-1cdf79b23ed9",
+						"exec": [
+							"postman.setNextRequest(\"DeleteUser\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"name\": \"usman\",\r\n    \"location\": \"lahore\",\r\n    \"phone\": 1223232323,\r\n    \"courses\": [\r\n      \"C\",\r\n      \"objective c\"\r\n    ],\r\n    \"id\": 8\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUserDetail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a35c5745-6644-4c57-9046-81bdc21a4f73",
+						"exec": [
+							"postman.setNextRequest(\"null\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"name\": \"das\",\r\n    \"location\": \"pak\",\r\n    \"phone\": 123254545,\r\n    \"courses\": [\r\n      \"Sel\",\r\n      \"py\"\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6ce0175-2405-4f3e-a3c7-ab5303e00496",
+						"exec": [
+							"postman.setNextRequest(\"UpdateUserDetail\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e5bde110-31cd-442c-b719-a104ee3eecbd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4ff221e5-5663-4448-9270-88fcd08506d2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

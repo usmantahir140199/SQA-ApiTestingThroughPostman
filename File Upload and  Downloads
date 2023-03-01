@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "7f4d884b-6978-4430-9385-3a7141ea89d3",
+		"name": "File Upload and  Downloads",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SingleFileUpload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a35b3f26-50e0-4b7d-8328-53a7d7067cfa",
+						"exec": [
+							"tests[\"Validating Status Code\"] = responseCode.code == 200;\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify File name is singlefile or not\", function () {\r",
+							"var responseJson = pm.response.json();\r",
+							"pm.expect(responseJson.fileName).to.eql(\"singlefile.txt\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/SQA Engineer/Automation Testing OR Test Automation/Types of Automation Testing/API Testing/Postman/API Testing with Postman Session-6/singlefile.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/uploadFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MultipleFileUpload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec58178f-8020-4c26-8f0d-639777b15173",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify File name is File1 or not\", function () {\r",
+							"var responseJson = pm.response.json();\r",
+							"pm.expect(responseJson[0].fileName).to.eql(\"File1.txt\");\r",
+							"});\r",
+							"pm.test(\"Verify File name is File2 or not\", function () {\r",
+							"var responseJson = pm.response.json();\r",
+							"pm.expect(responseJson[1].fileName).to.eql(\"File2.txt\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files\n",
+							"type": "file",
+							"src": [
+								"/D:/SQA Engineer/Automation Testing OR Test Automation/Types of Automation Testing/API Testing/Postman/API Testing with Postman Session-6/File1.txt",
+								"/D:/SQA Engineer/Automation Testing OR Test Automation/Types of Automation Testing/API Testing/Postman/API Testing with Postman Session-6/File2.txt"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/uploadMultipleFiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uploadMultipleFiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download Multiple FIle1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "23783186-7ac0-4aac-8bd4-00cf6cef66f7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify Text in the response\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"usman\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/downloadFile/File1.txt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"downloadFile",
+						"File1.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download Multiple File2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "10927d6a-4f3a-4839-941d-1b52c2e48f05",
+						"exec": [
+							"pm.test(\"Verify Text in the response\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"Tahir\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/downloadFile/File2.txt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"downloadFile",
+						"File2.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download Single File",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fb1638d-cff7-48a6-b649-3b79d66d5a1f",
+						"exec": [
+							"pm.test(\"Verify Text in the response\", function () {\r",
+							"pm.expect(pm.response.text()).to.include(\"a\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/downloadFile/singleFile.txt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"downloadFile",
+						"singleFile.txt"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

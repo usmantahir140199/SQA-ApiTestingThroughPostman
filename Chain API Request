@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "59adccf5-7d06-484f-bea8-9a4ded1c25b0",
+		"name": "Chain API Request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ListUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cebf3d76-cd19-478f-886e-99066ba362f1",
+						"exec": [
+							"jsonData = JSON.parse(responseBody);\r",
+							"value = jsonData.data[0].first_name\r",
+							"pm.globals.set(\"username\", value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "54a6240d-b0c9-4877-b1a2-77d5831d93cc",
+						"exec": [
+							"postman.setNextRequest(\"ListUsers\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{username}}\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b0f8e92a-ad95-43b5-b529-7513713e4d99",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5cd1c979-294d-4dda-bcf0-fd0ea7e312b1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4bf820f5-36e9-4ed1-b596-eaf1f6933dc9",
+			"key": "username",
+			"value": "XYZ",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

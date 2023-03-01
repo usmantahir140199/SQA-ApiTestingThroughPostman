@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "2b24b6ba-0344-45e3-8b4d-f058f8a5482f",
+		"name": "PostmanScripting Using Javascript and Chai BDD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SingleUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42e19fe9-0c9f-47bb-a45b-b649095e0850",
+						"exec": [
+							"pm.globals.set(\"userid\", \"3\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e3f491d-0a80-4e00-80c8-9a48cec08165",
+						"exec": [
+							"// Status Code Validation\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Multiple Assertion\r",
+							"pm.test(\"Validate Multiple Fields in Response\", function () {\r",
+							"    var responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.data.id).to.eql(3);\r",
+							"    pm.expect(responseJson.data.first_name).to.eql(\"Emma\");\r",
+							"    pm.expect(responseJson.data.last_name).to.eql(\"Wong\");\r",
+							"});\r",
+							"\r",
+							"// Handling response that not parse or check that text is present in the file/responsebody or not\r",
+							"pm.test(\"Body contain some string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"emma.wong@reqres.in\")\r",
+							"});\r",
+							"// Status code being one of a set(multiple status code)\r",
+							"pm.test(\"Successful Status code\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202])\r",
+							"});\r",
+							"\r",
+							"// Testing header information\r",
+							"pm.test(\"Testing Header\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\")\r",
+							"});\r",
+							"pm.test(\"Content Type Present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\")\r",
+							"});\r",
+							"pm.test(\"Content Type Value\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\")\r",
+							"});\r",
+							"\r",
+							"// Testing Cookies\r",
+							"\r",
+							"\r",
+							"// Cookies Present or not\r",
+							"pm.test(\"Cookies Present or not\", function () {\r",
+							"    pm.expect(pm.cookies.has(\"Cookiename\")).to.be.true;\r",
+							"});\r",
+							"//Testing Cookie Value\r",
+							"pm.test(\"Content Type Value\", function () {\r",
+							"    pm.expect(pm.cookies.get(\"Cookiename\")).to.eql(\"Cookie Value\")\r",
+							"});\r",
+							"\r",
+							"// Response Time\r",
+							"\r",
+							"pm.test(\"Testing Response Time should be less than 20 ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(20);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/{{userid}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,169 @@
+{
+	"id": "f43826d0-3765-40e3-b4a0-293c1a2879a9",
+	"name": "HTTP REQUESTS API",
+	"timestamp": "2022-11-30T09:46:59.196Z",
+	"collection_id": "21dfbbf5-a878-44ee-b2a4-a7911c450fca",
+	"folder_id": 0,
+	"environment_id": "ef6e5cde-08d0-49b1-9907-3cf47c489688",
+	"totalPass": 25,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "d9b7cbe7-60db-411e-af72-8a7247555083",
+			"name": "Multiple User Get Requests",
+			"time": 122,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Validating Status Code": true,
+				"Validating Response Body": true,
+				"page no": true
+			},
+			"testPassFailCounts": {
+				"Validating Status Code": {
+					"pass": 5,
+					"fail": 0
+				},
+				"Validating Response Body": {
+					"pass": 5,
+					"fail": 0
+				},
+				"page no": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				488,
+				117,
+				126,
+				110,
+				122
+			],
+			"allTests": [
+				{
+					"Validating Status Code": true,
+					"Validating Response Body": true,
+					"page no": true
+				},
+				{
+					"Validating Status Code": true,
+					"Validating Response Body": true,
+					"page no": true
+				},
+				{
+					"Validating Status Code": true,
+					"Validating Response Body": true,
+					"page no": true
+				},
+				{
+					"Validating Status Code": true,
+					"Validating Response Body": true,
+					"page no": true
+				},
+				{
+					"Validating Status Code": true,
+					"Validating Response Body": true,
+					"page no": true
+				}
+			]
+		},
+		{
+			"id": "c1d500a0-e5c5-45d1-9f23-4d9864268dbd",
+			"name": "Single User Get Request",
+			"time": 119,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Validating Response Body": true,
+				"Weaver is present in Last Name": true
+			},
+			"testPassFailCounts": {
+				"Validating Response Body": {
+					"pass": 5,
+					"fail": 0
+				},
+				"Weaver is present in Last Name": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				108,
+				111,
+				132,
+				108,
+				119
+			],
+			"allTests": [
+				{
+					"Validating Response Body": true,
+					"Weaver is present in Last Name": true
+				},
+				{
+					"Validating Response Body": true,
+					"Weaver is present in Last Name": true
+				},
+				{
+					"Validating Response Body": true,
+					"Weaver is present in Last Name": true
+				},
+				{
+					"Validating Response Body": true,
+					"Weaver is present in Last Name": true
+				},
+				{
+					"Validating Response Body": true,
+					"Weaver is present in Last Name": true
+				}
+			]
+		},
+		{
+			"id": "d143dea6-4ef8-4490-9078-03a8e25f078c",
+			"name": "Multiple User Post Requests",
+			"time": 489,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				463,
+				487,
+				485,
+				491,
+				489
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		}
+	],
+	"count": 5,
+	"totalTime": 3956,
+	"collection": {
+		"requests": [
+			{
+				"id": "d9b7cbe7-60db-411e-af72-8a7247555083",
+				"method": "GET"
+			},
+			{
+				"id": "c1d500a0-e5c5-45d1-9f23-4d9864268dbd",
+				"method": "GET"
+			},
+			{
+				"id": "d143dea6-4ef8-4490-9078-03a8e25f078c",
+				"method": "POST"
+			}
+		]
+	}
+}

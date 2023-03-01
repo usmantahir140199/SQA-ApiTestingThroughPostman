@@ -1,0 +1,1 @@
+ Business Logic Layer: Business logic is the programming that manages communication between an end user interface and a database.

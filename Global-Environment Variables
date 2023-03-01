@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "d6e1c290-24c0-4592-bb42-262f2aa0f8c1",
+		"name": "Global/Environment Variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{uri}}/users",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{uri}}/users/8",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"name\": \"usman\",\r\n    \"location\": \"lahore\",\r\n    \"phone\": 1223232323,\r\n    \"courses\": [\r\n      \"C\",\r\n      \"objective c\"\r\n    ],\r\n    \"id\": 10\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/users",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Detail",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"name\": \"usman\",\r\n    \"location\": \"lahore\",\r\n    \"phone\": 22222222222,\r\n    \"courses\": [\r\n      \"C\",\r\n      \"objective c\"\r\n    ],\r\n    \"id\": 10\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/users/10",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{uri}}/users/10",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f3b88974-d3b6-4ceb-a077-d0ec77c8df2e",
+				"type": "text/javascript",
+				"exec": [
+					"postman.setGlobalVariable(\"uri\",\"http://localhost:3000\")"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cd166ce4-eb59-4339-8793-ed952424bded",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
